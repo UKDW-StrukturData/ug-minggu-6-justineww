@@ -15,7 +15,7 @@ if choice in ("Edit", "Delete"):
             if (not em.getData("NIM",nim)): st.error("nim not found")
             else:
                 em.deleteData(nim,saveChange)
-                if (not em.getData("NIM",nim)): st.success("deleted")
+                if (not em.getData("NIM",nim)): st.success("Data Sukses di Hapus")
             
 
 if (choice in ("Insert","Edit")):
@@ -32,7 +32,7 @@ if (choice in ("Insert","Edit")):
                 if (not em.getData("NIM",nim)): st.success("Nim not found")
                 else:
                     result = em.editData(str(nim),{"NIM":str(newNim).strip(),"Nama":str(newName).strip(),"Nilai":int(newGrade.strip())},saveChange)
-                    if (em.getData("NIM",newNim)): st.success("edited")
+                    if (em.getData("NIM",newNim)): st.success("Data Sukses di Edit")
                     else: st.error("edit failed")
 
     if (choice == "Insert"):    
@@ -44,7 +44,7 @@ if (choice in ("Insert","Edit")):
                 if (em.getData("NIM",newNim)): st.error("Nim already exist")
                 else:
                     em.insertData({"NIM":str(newNim).strip(),"Nama":str(newName).strip(),"Nilai":int(newGrade.strip())},saveChange)
-                    if (em.getData("NIM",newNim)): st.success("inserted")
+                    if (em.getData("NIM",newNim)): st.success("Data Sukses di Masukan")
                     else: st.error("insert fail")
                                 
 # TODO: buatkan sistem filter data tabel berdasarkan kolom yang memiliki data angka
